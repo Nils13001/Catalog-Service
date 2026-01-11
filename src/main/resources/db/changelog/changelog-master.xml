@@ -13,5 +13,6 @@
     -->
 
     <include file="db/changelog/scripts/V1-Initial-DDL-Products-Table.sql"/>
+    <include file="db/changelog/scripts/V2-Alter-Products-Table-Add-ProductId.sql"/>
 
 </databaseChangeLog>

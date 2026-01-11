@@ -13,6 +13,26 @@ spring:
     enabled: true
     change-log: classpath:/db/changelog/changelog-master.xml
 
+  jpa:
+    # Liquibase owns schema — DO NOT let Hibernate auto-create/alter tables
+    hibernate:
+      ddl-auto: none
+    open-in-view: false            # Prevents lazy-loading leaks in web tier
+    show-sql: false                # Keep off by default; enable temporarily if needed
+    properties:
+      hibernate:
+        format_sql: true           # Pretty SQL if show-sql is enabled
+        dialect: org.hibernate.dialect.MySQLDialect  # Optional; Hibernate 6 can infer
+
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.hibernate.SQL: WARN           # Set to DEBUG if you enable show-sql
+    com.msa.catalog: DEBUG            # Your package logs
+
+
 
 springdoc:
   api-docs:
